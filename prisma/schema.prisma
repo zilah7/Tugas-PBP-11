@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model tabel_perpustakaan {
+  nama_buku      String   @db.VarChar(30)
+  nama_peminjam  String   @db.VarChar(25)
+  tanggal_pinjam DateTime @db.Date
+  kode_buku      Int      @id @default(autoincrement())
+  alamat         String   @db.Text
+  nomor_hp       Int
+}
